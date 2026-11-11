@@ -81,6 +81,10 @@ nav .nav-links a:hover {
     color: var(--dark-text);
 }
 
+.hero p {
+    margin-bottom: 20px;
+}
+
 /* Global rounded action buttons used across both pages */
 .button {
     display: inline-block;
