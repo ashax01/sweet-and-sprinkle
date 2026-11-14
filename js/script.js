@@ -20,15 +20,23 @@ const isPlus = this.classList.contains('plus');
         // Update the single card's text on screen
         cardQtyDisplay.innerText = currentSweetWeight + "g";
 
-        // Calculate the box price based on total weight tiers
-        if (totalWeight === 0) {
+        // Calculate box price on total weight tiers, exact bundle deal at 300g/500g/1kg/2kg, plus 75p per extra 50g scoop
+                if (totalWeight === 0) {
             totalPrice = 0.00;
-        } else if (totalWeight <= 300) {
+        } else if (totalWeight < 300) {
+            totalPrice = (totalWeight / 50) * 0.75;
+        } else if (totalWeight === 300) {
             totalPrice = 4.00;
-        } else if (totalWeight <= 500) {
+        } else if (totalWeight < 500) {
+            totalPrice = 4.00 + ((totalWeight - 300) / 50) * 0.75;
+        } else if (totalWeight === 500) {
             totalPrice = 7.00;
-        } else if (totalWeight <= 1000) {
+        } else if (totalWeight < 1000) {
+            totalPrice = 7.00 + ((totalWeight - 500) / 50) * 0.75;
+        } else if (totalWeight === 1000) {
             totalPrice = 13.00;
+        } else if (totalWeight < 2000) {
+            totalPrice = 13.00 + ((totalWeight - 1000) / 50) * 0.75;
         } else {
             totalPrice = 26.00;
         }
