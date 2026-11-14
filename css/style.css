@@ -130,6 +130,17 @@ nav .nav-links a:hover {
     border: 1px solid rgba(81, 65, 255, 0.05);
 }
 
+.sweet-icon {
+    font-size: 3rem;
+    background-color: #fff0f6;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 1rem auto;
+}
+
+
 /* Alignment group layout for our plus and minus buttons */
 .quantity-controls {
     display: flex;
