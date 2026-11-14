@@ -39,4 +39,24 @@ const isPlus = this.classList.contains('plus');
 
         console.log("Sweet clicked:", sweetType, "Add 50g?:", isPlus);
     });
+    // Handle the Confirm Mix button click
+const submitBtn = document.getElementById('btn-submit-order');
+
+submitBtn.addEventListener('click', function() {
+    const confirmationBox = document.getElementById('order-confirmation');
+    
+    // Check which packaging radio button is currently selected
+    const selectedPackaging = document.querySelector('input[name="packaging"]:checked').value;
+    console.log("Order submitted. Weight:", totalWeight, "Packaging:", selectedPackaging);
+
+    // Stop  user if their box is empty
+    if (totalWeight === 0) {
+        confirmationBox.style.color = "red";
+        confirmationBox.innerText = "Please add at least 50g of sweets first!";
+    } else {
+        confirmationBox.style.color = "#5141ff";
+        confirmationBox.innerText = "Mix confirmed! " + totalWeight + "g in a " + selectedPackaging + " for £" + totalPrice.toFixed(2) + ".";
+    }
+});
+
 });
