@@ -1,6 +1,6 @@
 # Sweet & Sprinkle – Pick 'n' Mix Box Builder
 
-Sweet & Sprinkle is a responsive, interactive online pick 'n' mix sweet shop built for Code Institute's Level 5 Diploma in Web Application Development (Project 2). Users can browse nine classic sweet varieties, customise their mix in 50g steps up to 2kg, choose their packaging, and view a live price calculation and itemised order receipt.
+Sweet & Sprinkle is a responsive, interactive online pick 'n' mix sweet shop built for customers to freely choose and create custom treats. Users can browse nine classic sweet varieties, customise their mix in 50g steps up to 2kg, choose their packaging, and view a live price calculation and itemised order receipt.
 
 ## Table of Contents
 
@@ -31,12 +31,20 @@ Sweet & Sprinkle is a responsive, interactive online pick 'n' mix sweet shop bui
 * **Packaging Selector & Itemised Order Confirmation:** Validates that at least 50g is selected, reads the chosen radio button packaging option, and generates an itemised order summary on screen.
 * **Custom 404 Error Page (`404.html`):** Catches broken links and guides visitors safely back to the homepage.
 
+
+## MoSCoW Prioritization
+
+* **Must-Have (Core MVP):** Responsive 3x3 sweet grid, 50g `+` / `-` weight controls, live price calculator, packaging selector, and empty-cart validation.
+* **Should-Have:** Proportional 75p-per-50g step pricing between bundle deals, 2kg maximum box limit, and an itemised order receipt on screen.
+* **Could-Have (Future Enhancements):** Dietary filter badges (Vegan / Halal / Gluten-Free) , custom gift note input, and local storage to save a customer's box on page refresh.
+
+
 ## Design Choices
 
 * **Colour Scheme:**
-  * `#ff006f` (Vivid Raspberry Pink) – Used for the brand logo, primary call-to-action buttons, and sidebar accent border.
-  * `#5141ff` (Electric Violet Blue) – Used for navigation hover states, eyebrow subheadings, and confirmation text.
-  * `#1a252f` (Dark Charcoal) – Used for body copy to maintain high contrast and readability against the `#fbfbfe` off-white background.
+  * `#ff006f` (Vivid raspberry Pink) – Used for the brand logo, primary call-to-action buttons, and sidebar accent border.
+  * `#5141ff` (Electric Violet blue) – Used for navigation hover states, eyebrow subheadings, and confirmation text.
+  * `#1a252f` (Dark Charcoal) – Used for body copy to maintain high contrast and readability against the `#fbfbfe` off-white background creating the flexibility for all.
 * **Responsive Layout:** Built with CSS Grid (`grid-template-columns: 2fr 1fr`) on desktop, automatically stacking into a single column below `768px` for mobile screens.
 
 ## Technologies Used
@@ -54,10 +62,27 @@ Sweet & Sprinkle is a responsive, interactive online pick 'n' mix sweet shop bui
 * Verified mobile (`375px`), tablet (`768px`), and desktop (`1440px`) layouts using browser device emulation.
 
 ### Bugs Fixed During Development
-* **HTML Structure & Viewport:** Fixed a `charset` typo, corrected mobile viewport `initial-scale` from `0.1` to `1.0`, fixed a broken navigation link to `build.html`, and moved `<footer>` inside `<body>`.
+* **HTML Structure & Viewport:** Fixed a `charset` typo, corrected mobile viewport `initial-scale` from `0.1` to `1.0`, fixed the broken navigation link to `build.html`, and moved `<footer>` inside `<body>`.
 * **Grid Alignment on 9th Card:** Fixed a misplaced closing `</div>` tag above the Foam Bananas card that caused it to stretch full-width outside the 3x3 grid.
 * **Hero Button Spacing:** Separated `.hero p` from `.hero h1` in `css/style.css` to add a `20px` bottom margin above the main call-to-action button.
 * **Proportional Pricing Tiers:** Updated the JavaScript pricing logic to add 75p per 50g between bundle weights and capped total box weight at 2000g.
+
+### Functional Testing Table
+
+| Feature Tested | Action Taken | Expected Result | Result |
+| :--- | :--- | :--- | :--- |
+| `+` / `-` Sweet Buttons | Click `+` and `-` across all 9 sweets | Adjusts weight in 50g steps; stops at 0g and 2000g | Pass |
+| Tiered Price Calculator | Test 50g, 300g, 350g, 500g, 1kg, and 2kg | Charges £4, £7, £13, £26 at tiers and +75p per 50g between | Pass |
+| Empty Box Validation | Click **Confirm Mix** at 0g | Displays red warning asking user to add 50g first | Pass |
+| Itemised Order Receipt | Select sweets + packaging and click **Confirm Mix** | Displays itemised sweet list, packaging, and total cost | Pass |
+| Mobile Responsiveness | Resize viewport below 768px in DevTools | Stacks sweet grid and order sidebar cleanly into 1 column | Pass |
+
+### Validation & Lighthouse Checks
+
+* **W3C HTML & CSS Validators:** Checked `index.html`, `build.html`, and `css/style.css` for valid syntax and proper tag nesting.
+* **JavaScript (JSHint):** Checked `js/script.js` with ES6 enabled; zero critical errors found.
+* **Chrome Lighthouse Audit:** Checked Performance, Accessibility, Best Practices, and SEO across desktop and mobile views (high contrast `#1a252f` text and semantic landmarks ensure strong accessibility).
+
 
 ## Deployment
 
@@ -69,10 +94,14 @@ Sweet & Sprinkle is a responsive, interactive online pick 'n' mix sweet shop bui
 
 ### Running Locally in VS Code
 1. Clone or download the repository and open the folder in Visual Studio Code.
-2. Right-click `index.html` and select **Open with Live Server** to preview the site locally.
+2. Right-click `index.html` and select **Open with Live Server** to preview the site locally and see if any bugs.
+
 
 ## Credits & Acknowledgements
 
-* **Code Institute:** Course curriculum and Project 2 rubric guidance for HTML5, CSS3, and JavaScript DOM manipulation.
-* **W3Schools & MDN Web Docs:** Reference guides for CSS Grid, Flexbox, media queries, and JavaScript event listeners.
-* **AI Learning Assistance:** ChatGPT and Google Gemini were used as learning tutors during development to explain JavaScript concepts in plain English, troubleshoot layout and logic bugs, and structure the project workflow.
+* **Code Institute:** Course materials and Project 2 guidelines for HTML5, CSS3, and JavaScript DOM manipulation.
+* **W3Schools & MDN Web Docs:** Reference documentation for CSS Grid, Flexbox, media queries, and JavaScript event listeners.
+* **Stack Overflow:** Community troubleshooting examples for CSS grid alignment and DOM event handling.
+* **AI Study Tools:** Used as a learning aid to clarify JavaScript concepts and help debug layout and pricing logic issues.
+
+ 
